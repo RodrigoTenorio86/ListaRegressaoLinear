@@ -6,7 +6,7 @@ library(readxl)
 library(caret)
 library(e1071)
 
-custo_tratamento <- read_excel("C:/Users/RTenorio/Downloads/custo_tratamento.xls")
+custo_tratamento <- read_excel("Downloads/custo_tratamento.xlsx")
 View(custo_tratamento)
 
 attach(custo_tratamento)
@@ -32,7 +32,7 @@ teste<-custo_tratamento[-treinamento,]
 dim(teste)
 
 
-#Regressão Linear Simples
+#Faça uma regressão linear simples na amostra de treinamento – Qual o valor do R^2 e sua interpretação?
 simples_tr<-lm(tr_modelo$custo ~tr_modelo$tempo_internacao)
 anova(simples_tr)
 summary(simples_tr)
@@ -44,6 +44,13 @@ tr_modelo$residuos_tr<-residuos_tr
 tr_modelo$ajuste_tr<-ajuste_tr
 
 head(tr_modelo)
+
+
+
+
+
+#Interprete o coeficiente do modelo, inclusive se é significante
+
 
 
 
@@ -77,5 +84,4 @@ qqnorm(residuos)
 qqline(residuos)
 
 
-#previsao
-
+#Faça a previsão desse modelo na amostra de teste.
