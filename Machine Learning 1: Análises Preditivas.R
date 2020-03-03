@@ -85,3 +85,13 @@ qqline(residuos)
 
 
 #Faça a previsão desse modelo na amostra de teste.
+
+
+attach(teste)
+names(teste)
+simples_teste <-lm(custo~tempo_internacao, data = teste)
+previsao_teste <-predict(simples_teste,teste)
+teste$previsao <-previsao_teste
+head(teste)
+
+dim(teste)
